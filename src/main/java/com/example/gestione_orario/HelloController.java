@@ -13,7 +13,6 @@ public class HelloController {
     public TextField user;
     public PasswordField pw;
     public Button enter;
-    public ArrayList<User> users;
 
     public void initialize(){
         user.setOnKeyReleased(key -> {
@@ -30,8 +29,12 @@ public class HelloController {
             error();
             return;
         }
-        String userName = user.getText();
-        String passWord = pw.getText();
+        String username = user.getText();
+        String password = pw.getText();
+        //User u = HelloApplication.knownUsers.stream().findFirst(e -> e.equals(username,password)).orElse(null);
+        if (HelloApplication.knownUsers.stream().anyMatch(e -> e.equals(username,password))) {
+            assert true;
+        } else error();
     }
 
     private void error() {

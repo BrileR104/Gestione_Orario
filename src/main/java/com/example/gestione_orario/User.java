@@ -1,3 +1,5 @@
+package com.example.gestione_orario;
+
 public class User {
     private String username;
     private String password;
@@ -24,4 +26,13 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public boolean equals(User u){
+        return username.equals(u.username) && password.equals(u.password);
+    }
+
+    public boolean equals(String u, String p){
+        return username.equals(u) && password.equals(p);
+    }
+
 }
